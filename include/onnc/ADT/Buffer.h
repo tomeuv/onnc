@@ -9,6 +9,7 @@
 #define ONNC_ADT_BUFFER_H
 #include <vector>
 #include <array>
+#include <cstddef>
 
 namespace onnc {
 

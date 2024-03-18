@@ -58,7 +58,7 @@ static void addInitializerBase(xGraph *pGraph, const xValue *pValue)
     newTensor.setName(name);
     assert(pValue->elemType() == (xTensorProtoDataType)onnc::Value::kFloat);
     newTensor.elem_type() = (xTensorProtoDataType)onnc::Value::kFloat;
-    pGraph->addInitializer(newTensor, name);
+    pGraph->addInitializer(newTensor);
   }
 }
 

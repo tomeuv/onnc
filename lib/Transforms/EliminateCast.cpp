@@ -29,7 +29,7 @@ void castTensorValues(xTensor& dest_tensor, const xTensor& src_tensor, const std
     src_data_ptr = &src_data;
   }
 
-  const ONNX_NAMESPACE::TensorProto_DataType& casted_type = dest_tensor.elem_type();
+  const ONNX_NAMESPACE::TensorProto_DataType& casted_type = (ONNX_NAMESPACE::TensorProto_DataType&)dest_tensor.elem_type();
 
   switch(casted_type) {
   case ONNX_NAMESPACE::TensorProto_DataType_UNDEFINED:
@@ -88,7 +88,7 @@ Pass::ReturnType EliminateCast::runOnModule(::onnc::Module &pModule)
       isChanged |= Pass::kModuleChanged;
       const xTensor& cast_input_tensor = *(graph->getInitializer(cast_input_value->uniqueName()));
 
-      const ONNX_NAMESPACE::TensorProto_DataType original_type = cast_input_value->elemType();
+      const ONNX_NAMESPACE::TensorProto_DataType original_type = (ONNX_NAMESPACE::TensorProto_DataType)cast_input_value->elemType();
       const ONNX_NAMESPACE::TensorProto_DataType casted_type = static_cast<ONNX_NAMESPACE::TensorProto_DataType>(node->i(xSymbol("to")));
       
       // Create a new tensor to store the casted tensor values from Cast input tensor, and replace Cast output tensor.

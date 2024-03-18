@@ -53,7 +53,7 @@ uint64_t BM188xTargetMemInfo::getElemSize(TP_DataTy pTy) const
   case xValueType::kUndefined:
     break;
   }
-  errs() << "Unsupport element size: " << TensorProto_DataType_Name(pTy)
+  errs() << "Unsupport element size: " << onnx::TensorProto_DataType_Name(pTy)
          << "\n";
   assert(0 && "Unsupport element size.");
 }

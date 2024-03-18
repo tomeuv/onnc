@@ -18,6 +18,9 @@
 /* define ARM target */
 #undef ENABLE_ARM_TARGET
 
+/* define CLang target */
+#undef ENABLE_CLANG_TARGET
+
 /* Enable clock_gettime */
 #undef ENABLE_CLOCK_GETTIME
 
@@ -26,6 +29,9 @@
 
 /* Enable gettimeofday */
 #undef ENABLE_GETTIMEOFDAY
+
+/* define NvDla target */
+#undef ENABLE_NVDLA_TARGET
 
 /* Enable optimize */
 #undef ENABLE_OPTIMIZE
@@ -38,9 +44,6 @@
 
 /* define Vanilla target */
 #undef ENABLE_VANILLA_TARGET
-
-/* define CLang target */
-#undef ENABLE_CLANG_TARGET
 
 /* define x86_64 target */
 #undef ENABLE_X86_TARGET
@@ -109,9 +112,6 @@
 /* Define to 1 if the system has the type `long long int'. */
 #undef HAVE_LONG_LONG_INT
 
-/* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
-
 /* Define to 1 if the system has the type `off_t'. */
 #undef HAVE_OFF_T
 
@@ -126,6 +126,9 @@
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdio.h> header file. */
+#undef HAVE_STDIO_H
 
 /* Define to 1 if you have the <stdlib.h> header file. */
 #undef HAVE_STDLIB_H
@@ -218,7 +221,9 @@
    your system. */
 #undef PTHREAD_CREATE_JOINABLE
 
-/* Define to 1 if you have the ANSI C header files. */
+/* Define to 1 if all of the C90 standard headers exist (not just the ones
+   required in a freestanding environment). This macro is provided for
+   backward compatibility; new code need not use it. */
 #undef STDC_HEADERS
 
 /* Version number of package */

@@ -25,7 +25,7 @@ DoParse(Module& pModule, ::google::protobuf::io::ZeroCopyInputStream& pStream,
 {
   ::google::protobuf::io::CodedInputStream coded_input(&pStream);
 
-  coded_input.SetTotalBytesLimit(pTotalBytesLimit, pWarningThreshold);
+  coded_input.SetTotalBytesLimit(pTotalBytesLimit);
   xProto model;
   if (!model.ParseFromCodedStream(&coded_input)) {
     return false;

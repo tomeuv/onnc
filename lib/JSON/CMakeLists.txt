@@ -2,7 +2,7 @@ find_package(BISON REQUIRED)
 set(BisonOutput JsonParser.cpp JsonParser.h)
 add_custom_command(
     OUTPUT ${BisonOutput}
-    COMMAND yacc --output=JsonParser.cpp ${CMAKE_CURRENT_SOURCE_DIR}/JsonParser.ypp
+    COMMAND bison -y --output=JsonParser.cpp ${CMAKE_CURRENT_SOURCE_DIR}/JsonParser.ypp
     DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/JsonParser.ypp)
 add_custom_target(gen_json_parser
     DEPENDS ${BisonOutput})

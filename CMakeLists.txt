@@ -157,11 +157,15 @@ set(ONNC_INCLUDE_DIRS
 #  onnx
 set(ONNX_NAMESPACE "onnx" CACHE STRING "Namespace of onnx")
 add_definitions(-DONNX_NAMESPACE=${ONNX_NAMESPACE})
-find_package(onnx REQUIRED)
+find_package(ONNX REQUIRED)
+set(ONNX_INCLUDE_DIR "onnx/install/include")
+set(ONNX_LIBRARY_DIR "onnx/install/lib")
+set(ONNX_LIBRARIES "onnx")
 message(STATUS "[${PACKAGE}] Using onnx include at ${ONNX_INCLUDE_DIR}")
 message(STATUS "[${PACKAGE}] Using onnx library at ${ONNX_LIBRARY_DIR}")
 include_directories(${ONNX_INCLUDE_DIR})
 link_directories(${ONNX_LIBRARY_DIR})
+add_compile_options(-DONNX_ML=1)
 #  SkyPat
 find_package(SkyPat REQUIRED)
 message(STATUS "[${PACKAGE}] Using SkyPat include at ${SKYPAT_INCLUDE_DIR}")

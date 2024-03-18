@@ -343,7 +343,7 @@ void Module::print(std::ostream& pOS) const
 template<>
 void Module::print(std::ostream& pOS, const xValue& pValue) const
 {
-  pOS << TensorProto_DataType_Name(pValue.elemType()) << " tensor ";
+  pOS << onnx::TensorProto_DataType_Name(pValue.elemType()) << " tensor ";
   // print dimension
   auto sizes = pValue.sizes();
   pOS << "<";

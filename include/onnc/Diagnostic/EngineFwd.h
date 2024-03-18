@@ -9,6 +9,7 @@
 #define ONNC_DIAGNOSTIC_ENGINE_FORWARD_H
 #include <onnc/ADT/StringRef.h>
 #include <string>
+#include <cstdint>
 
 namespace onnc {
 namespace diagnostic {

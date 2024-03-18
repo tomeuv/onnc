@@ -15,7 +15,7 @@ using namespace onnc;
 
 static void PrintValue(OStream &pOS, const xValue *pValue)
 {
-  pOS << TensorProto_DataType_Name(pValue->elemType()) << " tensor ";
+  pOS << onnx::TensorProto_DataType_Name(pValue->elemType()) << " tensor ";
   // print dimension
   auto sizes = pValue->sizes();
   pOS << "<";

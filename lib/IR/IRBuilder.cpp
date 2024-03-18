@@ -190,7 +190,7 @@ IRBuilder::AddInitializer(const std::string& pName,
       t.sizes().push_back(d.dim);
   }
 
-  getTensorGraph()->addInitializer(t, pName);
+  getTensorGraph()->addInitializer(t);
 
   // XXX: using back() because xGraph::addInitializer is an appending.
   onnc::InitializerProxy result(getTensorGraph()->initializer_names().back(),

@@ -35,8 +35,8 @@ bool onnc::onnxInferShape(Module &pModule)
     // Catch all onnx exception
     xProto modelProto;
     onnc::ExportModelProto(modelProto, pModule);
-    xcheck_model(modelProto);
-    xInferShapes(modelProto, xOpSchemaRegistry::Instance());
+    onnx::checker::check_model(modelProto);
+    ::onnx::shape_inference::InferShapes(modelProto, xOpSchemaRegistry::Instance(), {});
     ::onnc::IRBuilder ir_b(pModule);
     ir_b.update(modelProto);
   } catch (std::exception &e) {

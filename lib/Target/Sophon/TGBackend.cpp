@@ -60,7 +60,7 @@ bool TGBackend::isNativeTensorType(xTensorProtoDataType pType)
 size_t TGBackend::sizeOfTensorType(xTensorProtoDataType pType)
 {
   if (!isNativeTensorType(pType)) {
-    std::cerr << "unsupported pType " << TensorProto_DataType_Name(pType)
+    std::cerr << "unsupported pType " << onnx::TensorProto_DataType_Name(pType)
               << " in " << getBackendName() << "\n";
     return 0;
   }

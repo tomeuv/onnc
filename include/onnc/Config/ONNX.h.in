@@ -53,9 +53,6 @@ typedef ::@ONNX_NAMESPACE@::OpSchemaRegistry xOpSchemaRegistry;
 
 const static auto& xExportModelProto = ::@ONNX_NAMESPACE@::ExportModelProto;
 const static auto& xImportModelProto = ::@ONNX_NAMESPACE@::ImportModelProto;
-const static auto& xcheck_model = ::@ONNX_NAMESPACE@::checker::check_model;
-const static auto& xInferShapes =
-    ::@ONNX_NAMESPACE@::shape_inference::InferShapes;
 
 enum xValueType {
   kUndefined = ::@ONNX_NAMESPACE@::TensorProto_DataType_UNDEFINED,
