@@ -10,7 +10,6 @@ add_libonnc_src(
     EliminateCast.cpp
     ExtractConstToInitializer.cpp
     GraphBuildingPass.cpp
-    OnnxOptPass.cpp
     RemoveTrainingNodes.cpp
     TensorSel.cpp
 )

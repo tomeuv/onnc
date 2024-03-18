@@ -23,7 +23,6 @@
 #include <onnc/ADT/Color.h>
 #include <onnc/Support/IOStream.h>
 #include <onnc/Analysis/Counter.h>
-#include <onnc/Transforms/OnnxOptPass.h>
 
 #include <cassert>
 #include <fstream>
@@ -239,10 +238,6 @@ int ONNIApp::run()
   }
 
   PassManager pm;
-
-  if (options().onnxOpt()) {
-    enableOnnxOptmization(pm);
-  }
 
   const auto backend = std::unique_ptr<TargetBackend>{target->createBackend(options().target())};
   backend->addTensorSel(pm);
