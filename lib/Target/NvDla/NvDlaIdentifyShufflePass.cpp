@@ -54,9 +54,12 @@ Pass::ReturnType NvDlaIdentifyShufflePass::runOnModule(Module& pModule)
     graph->erase(*reshape1);
     graph->erase(*trans);
     graph->erase(*reshape2);
+
+    ret = Pass::kModuleChanged;
   }
 
-  graph->topologicalSort();
+  if (ret == Pass::kModuleChanged)
+     graph->topologicalSort();
 
   return ret;
 }
