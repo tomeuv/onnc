@@ -122,7 +122,7 @@ Pass::ReturnType ReplaceFlattenByReshape::runOnComputeGraph(ComputeGraph& pCG)
     remove_flatten(flatten, pCG);
   }
 
-  if (Pass::kModuleChanged) {
+  if (ret == Pass::kModuleChanged) {
     pCG.topologicalSort();
   }
   
