@@ -36,14 +36,17 @@ BuildInitializers::runOnGraphs(xGraph& pTG, ComputeGraph& pCG)
     ++tensor;
   }
 
-  for (xValue* v : pTG.inputs()) {
-    auto it = initializers.find(v->uniqueName());
-    if (initializers.end() != it) {
-      // The value appears in an initializer, we should create corresponding
-      // initializer to handle with the value.
-      Initializer* init = pCG.addOperator<onnc::Initializer>(v->uniqueName());
-      Tensor* value = IRBuilder::CreateComputeTensor(pCG, *v, *it->second);
-      init->setTensor(*value);
+  xGraphNodeListIterator tg_node, tg_end = pTG.end();
+  for (tg_node = pTG.begin(); tg_node != tg_end; ++tg_node) {
+   for (xValue* v : tg_node->inputs()) {
+      auto it = initializers.find(v->uniqueName());
+      if (initializers.end() != it) {
+         // The value appears in an initializer, we should create corresponding
+         // initializer to handle with the value.
+         Initializer* init = pCG.addOperator<onnc::Initializer>(v->uniqueName());
+         Tensor* value = IRBuilder::CreateComputeTensor(pCG, *v, *it->second);
+         init->setTensor(*value);
+      }
     }
   } // end of trip on all input values
 
